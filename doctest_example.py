@@ -60,7 +60,7 @@ def main():
         
         
         try:
-            print(f"The {int(num)}th Fibonacci number is {fib(num)}.") #use f"" string rather than having to put a .format with putting variables -> {}
+            print(f"The {int(num)}th Fibonacci number is {fib(num)}.") #use f" " string rather than having to put a .format with putting variables -> {}
             break
         
         except Exception as e:
