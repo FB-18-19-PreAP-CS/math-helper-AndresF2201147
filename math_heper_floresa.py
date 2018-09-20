@@ -8,74 +8,83 @@ def equation(x1,y1,x2,y2):
     '''Returns the equation of the line going through points (x1,y1)
        and (x2,y2) in slope intercept form; y = mx + b
        
-    >>>equation(3,-2,5,-1)
-    y = 1.5x - 3.5
+    >>> equation(3,-2,5,-1)
+    'y = 0.5x + -3.5'
     
-    >>>equation(10,8,-5,5)
-    y = 0.2x + 6.0
+    >>> equation(10,8,-5,5)
+    'y = 0.2x + 6.0'
     
-    >>>equation(-10,-15,-15,-20)
-    y = 1.0x - 5.0
+    >>> equation(-10,-15,-15,-20)
+    'y = 1.0x + -5.0'
 
-    >>>equation(5.8,9.2,5,4)
-    y = 6.5x + -28.5
+    >>> equation(5.8,9.2,5,4)
+    'y = 6.5x + -28.5'
     
-    >>>equation(3,5,-3,0)
-    y = 0.83x + 2.5
+    >>> equation(3,5,-3,0)
+    'y = 0.83x + 2.5'
     '''
     
     slope = (y2 - y1) / (x2 - x1)
     mx = slope * x1
     intercept = y1 - mx
-    print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is y = {round(slope,2)}x + {round(intercept,2)}")
+    
+#    print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is y = {round(slope,2)}x + {round(intercept,2)}")
+    return(f'y = {round(slope,2)}x + {round(intercept,2)}')
+
 
 def heron(a,b,c):
     '''Returns the area of a triangle given sides a, b, and c
        The three sides must comply with the Triangle Inequality Theorem - The sum of the lengths
        of any two sides of a triangle is greater than the length of the third side.
        
-       >>>heron(7,10,9)
-       30.59
+       >>> heron(7,10,9)
+       '30.59'
        
-       >>>heron(100,135,226)
-       3595.41
+       >>> heron(100,135,226)
+       '3595.41'
        
-       >>>heron(4.4,5.5,7.708000)
-       11.85
+       >>> heron(4.4,5.5,7.708000)
+       '11.85'
        
-       >>>heron(75.3,26.75,110.07)
+       >>> heron(2,7,9)
        Traceback (most recent call last):
         ...
-        ValueError: Cannot square root a negative number
+       ValueError: Impossible input due to one side being too small(Triangle Inequality Theorem)
        
-       >>>heron(75.3,26.75,9.07)
+       >>> heron(75.3,26.75,9.07)
        Traceback (most recent call last):
         ...
-        ValueError: Impossible input due to one side being to small(Triangle Inequality Theorem)
+       ValueError: Impossible input due to one side being too small(Triangle Inequality Theorem)
     '''
+    if a + b <= c or b + c <= a or a + c <= b:
+        raise ValueError("Impossible input due to one side being too small(Triangle Inequality Theorem)")
+    
+
     
     s = (a + b + c) / 2
     ans = sqrt(s * (s - a) * (s - b) * (s - c))
-    print(f"The area of a triangle from side {a}, {b}, and {c} is {round(ans, 2)}")
+    
+    return(f"{round(ans,2)}")
+#    print(f"The area of a triangle from side {a}, {b}, and {c} is {round(ans, 2)}")
 
 def quad(a,b,c):
     '''Returns two answers(zeros) using the quadratic formula for a quadratic equation
        Inputing the 'a' value, 'b' value, and 'c' value from
        ax^2 + bx + c = 0
        
-       >>>quad(1,6,8)
+       >>> quad(1,6,8)
        -2.0 and -4.0
        
-       >>>quad(1,16,0)
+       >>> quad(1,16,0)
        0 and -16.0
        
-       >>>quad(3,-11,-6)
+       >>> quad(3,-11,-6)
        4.15 and -0.48
        
-       >>>quad(2,1,-6)
+       >>> quad(2,1,-6)
        1.5 and -2.0
        
-       >>>quad(7,-50,48)
+       >>> quad(7,-50,48)
        6.0 and 1.14
     '''
     
@@ -97,33 +106,34 @@ def pyth(a,b):
        Given 2 sides, this will find the length of the hypotenuse
        a^2 + b^2 = c^2
        
-       >>>pyth(4,6)
+       >>> pyth(4,6)
        7.21
        
-       >>>pyth(6.6,10.3)
+       >>> pyth(6.6,10.3)
        12.23
        
-       >>>pyth(23000,63.3)
+       >>> pyth(23000,63.3)
        23000.09
        
-       >>>pyth(-12,7)
+       >>> pyth(-12,7)
        Traceback (most recent call last):
         ...
         ValueError: Inputs must be a positive integer
        
-       >>>pyth(-4,-15)
+       >>> pyth(-4,-15)
        Traceback (most recent call last):
         ...
         ValueError: Inputs must be a positive integer
     '''
     if a or b < 0:
         raise ValueError("Inputs must be a positive integer")
+    
     c = sqrt((a**2) + (b**2))
     
     print(f"The hypotenuse of a right triangle with side {a} and {b} is {round(c,2)}")
     
 def main():
-    
+    heron(2,7,9)
 #    print('Enter coordinates of 2 points')
 #    x1 = float(input('x1: '))
 #    y1 = float(input('y1: '))
@@ -136,18 +146,15 @@ def main():
 #        a = float(input('a: '))
 #        b = float(input('b: '))
 #        c = float(input('c: '))
-#        if a + b <= c or b + c <= a:
+#        if a + b <= c or b + c <= a or a + c <= b:
 #            pass
-#        if a + c > b:
-#            pass
-#        else:
-#            again += 1
-#            print('Impossible input because of the Triangle Inequality Theorem')
 #       
 #     heron(a,b,c)
     
     
 
 if __name__ == "__main__":
-    main()
+    #main()
+    import doctest
+    doctest.testmod()
     
