@@ -19,6 +19,9 @@ def equation(x1,y1,x2,y2):
 
     >>>equation(5.8,9.2,5,4)
     y = 6.5x + -28.5
+    
+    >>>equation(3,5,-3,0)
+    y = 0.83x + 2.5
     '''
     
     slope = (y2 - y1) / (x2 - x1)
@@ -41,14 +44,14 @@ def heron(a,b,c):
        11.85
        
        >>>heron(75.3,26.75,110.07)
-       Traceback (most recent call last:
+       Traceback (most recent call last):
         ...
         ValueError: Cannot square root a negative number
        
        >>>heron(75.3,26.75,9.07)
        Traceback (most recent call last):
         ...
-        ValueError: Impossible input due to one side being to small
+        ValueError: Impossible input due to one side being to small(Triangle Inequality Theorem)
     '''
     
     s = (a + b + c) / 2
@@ -61,13 +64,19 @@ def quad(a,b,c):
        ax^2 + bx + c = 0
        
        >>>quad(1,6,8)
-       -2 and -4
+       -2.0 and -4.0
        
        >>>quad(1,16,0)
-       0 and -16
+       0 and -16.0
        
        >>>quad(3,-11,-6)
        4.15 and -0.48
+       
+       >>>quad(2,1,-6)
+       1.5 and -2.0
+       
+       >>>quad(7,-50,48)
+       6.0 and 1.14
     '''
     
     if ((b**2) - (4 * (a * c))) < 0:
@@ -82,9 +91,39 @@ def quad(a,b,c):
     
     print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {round(final1,2)} and {round(final2,2)}")
     
+def pyth(a,b):
+    '''Pythagorean Theorem -  the square of the hypotenuse of a right triangle is equal to the sum of the squares
+       of the other two sides
+       Given 2 sides, this will find the length of the hypotenuse
+       a^2 + b^2 = c^2
+       
+       >>>pyth(4,6)
+       7.21
+       
+       >>>pyth(6.6,10.3)
+       12.23
+       
+       >>>pyth(23000,63.3)
+       23000.09
+       
+       >>>pyth(-12,7)
+       Traceback (most recent call last):
+        ...
+        ValueError: Inputs must be a positive integer
+       
+       >>>pyth(-4,-15)
+       Traceback (most recent call last):
+        ...
+        ValueError: Inputs must be a positive integer
+    '''
+    if a or b < 0:
+        raise ValueError("Inputs must be a positive integer")
+    c = sqrt((a**2) + (b**2))
+    
+    print(f"The hypotenuse of a right triangle with side {a} and {b} is {round(c,2)}")
     
 def main():
-    quad(1,6,8)
+    
 #    print('Enter coordinates of 2 points')
 #    x1 = float(input('x1: '))
 #    y1 = float(input('y1: '))
