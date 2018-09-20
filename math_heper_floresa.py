@@ -49,8 +49,8 @@ def heron(a,b,c):
        Traceback (most recent call last):
         ...
         ValueError: Impossible input due to one side being to small
-
     '''
+    
     s = (a + b + c) / 2
     ans = sqrt(s * (s - a) * (s - b) * (s - c))
     print(f"The area of a triangle from side {a}, {b}, and {c} is {round(ans, 2)}")
@@ -59,8 +59,17 @@ def quad(a,b,c):
     '''Returns two answers(zeros) using the quadratic formula for a quadratic equation
        Inputing the 'a' value, 'b' value, and 'c' value from
        ax^2 + bx + c = 0
-
+       
+       >>>quad(1,6,8)
+       -2 and -4
+       
+       >>>quad(1,16,0)
+       0 and -16
+       
+       >>>quad(3,-11,-6)
+       4.15 and -0.48
     '''
+    
     if ((b**2) - (4 * (a * c))) < 0:
         raise ValueError("Cannot square root a negative integer")
     
@@ -75,7 +84,7 @@ def quad(a,b,c):
     
     
 def main():
-    quad(3,4,5)
+    quad(1,6,8)
 #    print('Enter coordinates of 2 points')
 #    x1 = float(input('x1: '))
 #    y1 = float(input('y1: '))
