@@ -31,7 +31,6 @@ def equation(x1,y1,x2,y2):
     mx = slope * x1
     intercept = y1 - mx
     
-#    print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is y = {round(slope,2)}x + {round(intercept,2)}")
     return(f'y = {round(slope,2)}x + {round(intercept,2)}')
 
 
@@ -67,7 +66,6 @@ def heron(a,b,c):
     ans = sqrt(s * (s - a) * (s - b) * (s - c))
     
     return(f"{round(ans,2)}")
-#    print(f"The area of a triangle from side {a}, {b}, and {c} is {round(ans, 2)}")
 
 def quad(a,b,c):
     '''Returns two answers(zeros) using the quadratic formula for a quadratic equation
@@ -102,9 +100,6 @@ def quad(a,b,c):
     
     tup = (round(final1,2),round(final2,2))
     return(tup)
-
-    
-#    print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {round(final1,2)} and {round(final2,2)}")
     
 def pyth(a,b):
     '''Pythagorean Theorem -  the square of the hypotenuse of a right triangle is equal to the sum of the squares
@@ -137,7 +132,6 @@ def pyth(a,b):
     c = sqrt((a**2) + (b**2))
     
     return(f"{round(c,2)}")
-#    print(f"The hypotenuse of a right triangle with side {a} and {b} is {round(c,2)}")
 
 def ask_equation():
     while True:
@@ -176,29 +170,38 @@ def ask_pyth():
         print(f"The hypotenuse of a right triangle with side {a} and {b} is {pyth(a,b)}")
         break
         
-    
 def main():
     while True:
         print("--Pick an equation to use -- \n (1) Equation of the line going through two points \n (2) Heron's formula (area of triangle) \n (3) Quadratic Formula \n (4) Pythagorean Theorem \n If you would like to quit input 'quit'")
         
         ans = input('Which one would you like to use?: ')
         
+        
         if ans.lower() == 'quit':
+            print()
             break
         
+        
         elif ans == '1':
+            print()
             ask_equation()
+            print()
             
         elif ans == '2':
+            print()
             ask_heron()
+            print()
             
         elif ans == '3':
+            print()
             ask_quad()
+            print()
             
         elif ans == '4':
+            print()
             ask_pyth()
-        
-
+            print()
+    
 if __name__ == "__main__":
     main()
     #import doctest
