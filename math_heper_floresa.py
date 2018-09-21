@@ -58,7 +58,6 @@ def heron(a,b,c):
     '''
     if a + b <= c or b + c <= a or a + c <= b:
         raise ValueError("Impossible input due to one side being too small(Triangle Inequality Theorem)")
-    
 
     
     s = (a + b + c) / 2
@@ -73,19 +72,19 @@ def quad(a,b,c):
        ax^2 + bx + c = 0
        
        >>> quad(1,6,8)
-       -2.0 and -4.0
+       '-2.0 -4.0'
        
        >>> quad(1,16,0)
-       0 and -16.0
+       '0.0 -16.0'
        
        >>> quad(3,-11,-6)
-       4.15 and -0.48
+       '4.15 -0.48'
        
        >>> quad(2,1,-6)
-       1.5 and -2.0
+       '1.5 -2.0'
        
        >>> quad(7,-50,48)
-       6.0 and 1.14
+       '6.0 1.14'
     '''
     
     if ((b**2) - (4 * (a * c))) < 0:
@@ -98,7 +97,9 @@ def quad(a,b,c):
     final1 = ans1 / (2 * a)
     final2 = ans2 / (2 * a)
     
-    print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {round(final1,2)} and {round(final2,2)}")
+    return(f"{round(final1,2)} {round(final2,2)}")
+    
+#    print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {round(final1,2)} and {round(final2,2)}")
     
 def pyth(a,b):
     '''Pythagorean Theorem -  the square of the hypotenuse of a right triangle is equal to the sum of the squares
