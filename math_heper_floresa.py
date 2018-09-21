@@ -133,30 +133,26 @@ def pyth(a,b):
     
     return(f"{round(c,2)}")
 #    print(f"The hypotenuse of a right triangle with side {a} and {b} is {round(c,2)}")
+
+def ask_equation():
+    while True:
+        print('Give your two points (x1,y1,x2,y2)')
+        x1 = float(input('x1: '))
+        y1 = float(input('y1: '))
+        x2 = float(input('x2: '))
+        y2 = float(input('y2: '))
+        print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is {equation(x1,y1,x2,y2)}")
+        break
+
     
 def main():
-    pyth(4,6)
-#    print('Enter coordinates of 2 points')
-#    x1 = float(input('x1: '))
-#    y1 = float(input('y1: '))
-#    x2 = float(input('x2: '))
-#    y2 = float(input('y2: '))
-#    equation(x1,y1,x2,y2)
-#    while True:
-#        
-#        print('Enter the sides of the triangle')
-#        a = float(input('a: '))
-#        b = float(input('b: '))
-#        c = float(input('c: '))
-#        if a + b <= c or b + c <= a or a + c <= b:
-#            pass
-#       
-#     heron(a,b,c)
+    ask_equation()
+
     
     
 
 if __name__ == "__main__":
-    #main()
-    import doctest
-    doctest.testmod()
+    main()
+    #import doctest
+    #doctest.testmod()
     
