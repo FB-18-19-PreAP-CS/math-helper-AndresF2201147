@@ -75,19 +75,19 @@ def quad(a,b,c):
        ax^2 + bx + c = 0
        
        >>> quad(1,6,8)
-       '-2.0 -4.0'
+       (-2.0, -4.0)
        
        >>> quad(1,16,0)
-       '0.0 -16.0'
+       (0.0, -16.0)
        
        >>> quad(3,-11,-6)
-       '4.15 -0.48'
+       (4.15, -0.48)
        
        >>> quad(2,1,-6)
-       '1.5 -2.0'
+       (1.5, -2.0)
        
        >>> quad(7,-50,48)
-       '6.0 1.14'
+       (6.0, 1.14)
     '''
     
     if ((b**2) - (4 * (a * c))) < 0:
@@ -100,7 +100,9 @@ def quad(a,b,c):
     final1 = ans1 / (2 * a)
     final2 = ans2 / (2 * a)
     
-    return(f"{round(final1,2)} {round(final2,2)}")
+    tup = (round(final1,2),round(final2,2))
+    return(tup)
+
     
 #    print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {round(final1,2)} and {round(final2,2)}")
     
@@ -146,13 +148,56 @@ def ask_equation():
         y2 = float(input('y2: '))
         print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is {equation(x1,y1,x2,y2)}")
         break
+    
+def ask_heron():
+    while True:
+        print('Give your three sides of the triangle (a,b,c)')
+        a = float(input('a: '))
+        b = float(input('b: '))
+        c = float(input('c: '))
+        print(f"The area of a triangle from side {a}, {b}, and {c} is {heron(a,b,c)}")
+        break
 
+def ask_quad():
+    while True:
+        print('Give your three inputs (ax^2 + bx + c)')
+        a = float(input('a: '))
+        b = float(input('b: '))
+        c = float(input('c: '))
+        tup = quad(a,b,c)
+        print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {tup[0]} and {tup[1]}")
+        break
+    
+def ask_pyth():
+    while True:
+        print('Give the two measurements of a right triangle to find the hypotenuse - c \n (a,b)')
+        a = float(input('a: '))
+        b = float(input('b: '))
+        print(f"The hypotenuse of a right triangle with side {a} and {b} is {pyth(a,b)}")
+        break
+        
     
 def main():
-    ask_equation()
-
-    
-    
+    while True:
+        print("--Pick an equation to use -- \n (1) Equation of the line going through two points \n (2) Heron's formula (area of triangle) \n (3) Quadratic Formula \n (4) Pythagorean Theorem \n If you would like to quit input 'quit'")
+        
+        ans = input('Which one would you like to use?: ')
+        
+        if ans.lower() == 'quit':
+            break
+        
+        elif ans == '1':
+            ask_equation()
+            
+        elif ans == '2':
+            ask_heron()
+            
+        elif ans == '3':
+            ask_quad()
+            
+        elif ans == '4':
+            ask_pyth()
+        
 
 if __name__ == "__main__":
     main()
