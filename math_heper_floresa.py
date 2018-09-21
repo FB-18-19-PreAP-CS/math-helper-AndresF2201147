@@ -108,33 +108,34 @@ def pyth(a,b):
        a^2 + b^2 = c^2
        
        >>> pyth(4,6)
-       7.21
+       '7.21'
        
        >>> pyth(6.6,10.3)
-       12.23
+       '12.23'
        
        >>> pyth(23000,63.3)
-       23000.09
+       '23000.09'
        
        >>> pyth(-12,7)
        Traceback (most recent call last):
         ...
-        ValueError: Inputs must be a positive integer
+       ValueError: Inputs must be a positive integer
        
        >>> pyth(-4,-15)
        Traceback (most recent call last):
         ...
-        ValueError: Inputs must be a positive integer
+       ValueError: Inputs must be a positive integer
     '''
-    if a or b < 0:
+    if a < 0 or b < 0:
         raise ValueError("Inputs must be a positive integer")
     
     c = sqrt((a**2) + (b**2))
     
-    print(f"The hypotenuse of a right triangle with side {a} and {b} is {round(c,2)}")
+    return(f"{round(c,2)}")
+#    print(f"The hypotenuse of a right triangle with side {a} and {b} is {round(c,2)}")
     
 def main():
-    heron(2,7,9)
+    pyth(4,6)
 #    print('Enter coordinates of 2 points')
 #    x1 = float(input('x1: '))
 #    y1 = float(input('y1: '))
