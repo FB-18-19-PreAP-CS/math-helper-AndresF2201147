@@ -20,9 +20,12 @@ def equation(x1,y1,x2,y2):
     >>> equation(5.8,9.2,5,4)
     'y = 6.5x + -28.5'
     
-    >>> equation(3,5,-3,0)
-    'y = 0.83x + 2.5'
+    >>> equation(0,0,0,0)
+    'x = 0'
     '''
+    
+    if x1 == 0 and y2 == 0 and x2 == 0 and y2 == 0:
+        return('x = 0')
     
     slope = (y2 - y1) / (x2 - x1)
     mx = slope * x1
