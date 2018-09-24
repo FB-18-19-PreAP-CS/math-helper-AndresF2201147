@@ -84,10 +84,13 @@ def quad(a,b,c):
        >>> quad(2,1,-6)
        (1.5, -2.0)
        
-       >>> quad(7,-50,48)
-       (6.0, 1.14)
+       >>> quad(0,-50,48)
+       Traceback (most recent call last):
+        ...
+       ValueError: a cannot be 0
     '''
-    
+    if a == 0:
+        raise ValueError("a cannot be 0")
     if ((b**2) - (4 * (a * c))) < 0:
         raise ValueError("Cannot square root a negative integer")
     
