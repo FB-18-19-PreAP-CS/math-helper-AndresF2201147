@@ -1,4 +1,5 @@
 from math import *
+from time import *
 
 '''
 5 tests of the 5 formulas here
@@ -90,7 +91,7 @@ def quad(a,b,c):
        ValueError: a cannot be 0
     '''
     if a == 0:
-        raise ValueError("a cannot be 0")
+        raise ValueError("'a' cannot be 0")
     if ((b**2) - (4 * (a * c))) < 0:
         raise ValueError("Cannot square root a negative integer")
     
@@ -175,15 +176,13 @@ def ask_pyth():
         
 def main():
     while True:
-        print("--Pick an equation to use -- \n (1) Equation of the line going through two points \n (2) Heron's formula (area of triangle) \n (3) Quadratic Formula \n (4) Pythagorean Theorem \n If you would like to quit input 'quit'")
-        
+        print("--Pick an equation to use -- \n (1) Equation of the line going through two points \n (2) Heron's formula (area of triangle) \n (3) Quadratic Formula \n (4) Pythagorean Theorem \n \n If you would like to quit input 'quit'")
+        print()
         ans = input('Which one would you like to use?: ')
-        
         
         if ans.lower() == 'quit':
             print()
-            break
-        
+            break        
         
         elif ans == '1':
             print()
@@ -204,6 +203,15 @@ def main():
             print()
             ask_pyth()
             print()
+
+        try:
+            ans = int(ans)
+        except ValueError:
+            print()
+            print("Not an integer.")
+            print()
+            sleep(1)
+            
     
 if __name__ == "__main__":
     main()
