@@ -25,6 +25,7 @@ def equation(x1,y1,x2,y2):
     'x = 0'
     '''
     
+    
     if x1 == 0 and y2 == 0 and x2 == 0 and y2 == 0:
         return('x = 0')
     
@@ -140,39 +141,56 @@ def pyth(a,b):
 def ask_equation():
     while True:
         print('Give your two points (x1,y1,x2,y2)')
-        x1 = float(input('x1: '))
-        y1 = float(input('y1: '))
-        x2 = float(input('x2: '))
-        y2 = float(input('y2: '))
-        print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is {equation(x1,y1,x2,y2)}")
-        break
+        try:
+            x1 = float(input('x1: '))
+            y1 = float(input('y1: '))
+            x2 = float(input('x2: '))
+            y2 = float(input('y2: '))
+            print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is {equation(x1,y1,x2,y2)}")
+            break
+        except ValueError:
+            print("Not an int.")
+
     
 def ask_heron():
     while True:
         print('Give your three sides of the triangle (a,b,c)')
-        a = float(input('a: '))
-        b = float(input('b: '))
-        c = float(input('c: '))
+        try:
+            a = float(input('a: '))
+            b = float(input('b: '))
+            c = float(input('c: '))
+            print(f"The area of a triangle from side {a}, {b}, and {c} is {heron(a,b,c)}")
+            break
+        except ValueError:
+            print("Not an int.")
         print(f"The area of a triangle from side {a}, {b}, and {c} is {heron(a,b,c)}")
         break
 
 def ask_quad():
     while True:
         print('Give your three inputs (ax^2 + bx + c)')
-        a = float(input('a: '))
-        b = float(input('b: '))
-        c = float(input('c: '))
-        tup = quad(a,b,c)
-        print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {tup[0]} and {tup[1]}")
-        break
+        try:
+            a = float(input('a: '))
+            b = float(input('b: '))
+            c = float(input('c: '))
+            tup = quad(a,b,c)
+            print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {tup[0]} and {tup[1]}")
+            break
+        except ValueError:
+            print("Not an int.")
+
     
 def ask_pyth():
     while True:
         print('Give the two measurements of a right triangle to find the hypotenuse - c \n (a,b)')
-        a = float(input('a: '))
-        b = float(input('b: '))
-        print(f"The hypotenuse of a right triangle with side {a} and {b} is {pyth(a,b)}")
-        break
+        try:
+            a = float(input('a: '))
+            b = float(input('b: '))
+            print(f"The hypotenuse of a right triangle with side {a} and {b} is {pyth(a,b)}")
+            break
+        except ValueError:
+            print("Not an int.")
+
         
 def main():
     while True:
