@@ -148,8 +148,8 @@ def ask_equation():
             y2 = float(input('y2: '))
             print(f"The equation of the line going through points ({x1},{y1}) and ({x2,y2}) is {equation(x1,y1,x2,y2)}")
             break
-        except ValueError:
-            print("Not an int.")
+        except ValueError as e:
+            print(f"Error: {e}")
 
     
 def ask_heron():
@@ -161,10 +161,8 @@ def ask_heron():
             c = float(input('c: '))
             print(f"The area of a triangle from side {a}, {b}, and {c} is {heron(a,b,c)}")
             break
-        except ValueError:
-            print("Not an int.")
-        print(f"The area of a triangle from side {a}, {b}, and {c} is {heron(a,b,c)}")
-        break
+        except ValueError as e:
+            print(f"Error: {e}")
 
 def ask_quad():
     while True:
@@ -176,8 +174,8 @@ def ask_quad():
             tup = quad(a,b,c)
             print(f"The zeros of the quadratic equation {a}x^2 + {b}x + {c} = 0 is \n {tup[0]} and {tup[1]}")
             break
-        except ValueError:
-            print("Not an int.")
+        except ValueError as e:
+            print(f"Error: {e}")
 
     
 def ask_pyth():
@@ -188,8 +186,8 @@ def ask_pyth():
             b = float(input('b: '))
             print(f"The hypotenuse of a right triangle with side {a} and {b} is {pyth(a,b)}")
             break
-        except ValueError:
-            print("Not an int.")
+        except ValueError as e:
+            print(f"Error: {e}")
 
         
 def main():
